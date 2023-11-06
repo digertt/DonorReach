@@ -74,5 +74,16 @@ module.exports = {
       filename: 'faq-page.html', 
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'src/about-page.html', 
+      filename: 'about-page.html', 
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+
+    new HtmlWebpackPlugin({
+      template: 'src/contact-page.html', 
+      filename: 'contact-page.html', 
+    }),
+    new webpack.HotModuleReplacementPlugin(),
   ]
 }
