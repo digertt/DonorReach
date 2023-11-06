@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "name": "apples",
+      "number": 5,
+      "goal": 10,
+      "percentage": 50
+    },
+    {
+      "name": "oranges",
+      "number": 75,
+      "goal": 100,
+      "percentage": 75
+    },
+    {
+      "name": "pears",
+      "number": 10,
+      "goal": 40,
+      "percentage": 25
+    }
+  ],
+  "announcements": {
+    "1": {
+      "Title": "Hello world!",
+      "Text": "We're no strangers to love"
+    },
+    "2": {
+      "Title": "Other announcement!",
+      "Text": "You know the rules, and so do I!"
+    }
+  }
+}
