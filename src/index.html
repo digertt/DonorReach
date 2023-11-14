@@ -20,30 +20,78 @@
         </div>
         -->
 
-        <h2 class = "font-weight-bold text-center"> Organization Name's Inventory </h2>
-        <div class="donation-progress">
-          <div class="donation-item">
-            <p><b>Donation 1</b></p>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 75%;"></div>
-              <div class="custom-fraction-text">175/250 boxes</div>
-            </div>
+        <div class="donation-progress" id="donation-bars">
+          <!--
+        <div class="donation-item">
+          <p><b>Donation 1</b></p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 75%;"></div>
+            <div class="custom-fraction-text">175/250 boxes</div>
           </div>
-          <div class="donation-item">
-            <p><b>Donation 2</b></p>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 50%;"></div>
-              <div class="custom-fraction-text">100/200 cans</div>
-            </div>
+        </div>
+        <div class="donation-item">
+          <p><b>Donation 2</b></p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 50%;"></div>
+            <div class="custom-fraction-text">100/200 cans</div>
           </div>
-          <div class="donation-item">
-            <p><b>Donation 3</b></p>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 60%;"></div>
-              <div class="custom-fraction-text">25/40 pounds</div>
-            </div>
+        </div>
+        <div class="donation-item">
+          <p><b>Donation 3</b></p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%;"></div>
+            <div class="custom-fraction-text">25/40 pounds</div>
           </div>
-          <!-- Add more donation items as needed -->
+        </div>
+        <!-- Add more donation items as needed -->
+
+          <script type="text/javascript">
+            fetch(
+              "https://gist.githubusercontent.com/digertt/d2f522b0c938dc537d00e1215ce23721/raw/d080cf383d70ee1ebf0474f333b5f38e3bb492f0/data.json",
+            )
+              .then(function (response) {
+                return response.json();
+              })
+              .then(function (dat) {
+                generateDat(dat);
+              })
+              .catch(function (err) {
+                console.log("error: " + err);
+              });
+
+            function generateDat(dat) {
+              let curDiv = document.getElementById("donation-bars");
+              for (let i = 0; i < dat.items.length; i++) {
+                let itemBar = document.createElement("div");
+                itemBar.innerHTML =
+                  "<div class=" +
+                  '"donation-item"' +
+                  ">" +
+                  "<p><b>" + dat.items[i].name + "</b></p>" +
+                  "<div class=" +
+                  '"progress-bar"' +
+                  ">" +
+                  "<div class=" +
+                  '"progress-fill"' +
+                  "style=" +
+                  '"width: ' +
+                  dat.items[i].percentage +
+                  '%";' +
+                  "></div>" +
+                  "<div class=" +
+                  '"custom-fraction-text"' +
+                  ">" +
+                  dat.items[i].number +
+                  "/" +
+                  dat.items[i].goal +
+                  " collected</div>" +
+                  "</div>" +
+                  "</div>";
+                curDiv.appendChild(itemBar);
+              }
+              
+            }
+          </script>
         </div>
 
         <p class="subscribe-text">→ Subscribe via <i>email</i> or <i>phone number</i> to 
@@ -66,15 +114,16 @@
 
         <h2 class = "font-weight-bold text-center"> Organization's Announcement Board </h2>
         <!-- Div below determines board height -->
-        <div id = "Announcement-Board" id = "centerItem" class ="overflow-auto p-4 my-4 bg-light border border-dark border-3" style = "max-height: 400px;">
+        <div id = "Announcement-Board" class ="overflow-auto p-4 my-4 bg-light border border-dark border-3" style = "max-height: 400px;">
 
           <!-- possibly make divs below appendable with need input for h3, img, and p? idk -->
 
           <!-- Announcement with image on left -->
+          <!--
           <div id = "Announcement-Left-Image" class="row-9 my-3 align-self-center border border-dark rounded">
-            <!-- Announcement Box -->
+            <-- Announcement Box --
             <div class="col p-4 align-self-center">
-              <!-- Individual Announcement -->
+              <-- Individual Announcement --
               <div class="row-sm-8">
                 <div class="col p-4 border border-dark rounded">
                   <h3> Announcement Title</h3>
@@ -82,7 +131,7 @@
                     <div class="col-4">
                       <img src="charity.png">
                     </div>
-                    <!-- Description body goes here -->
+                    <-- Description body goes here --
                     <div class="col-8">
                       <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
@@ -99,16 +148,16 @@
             </div>
           </div>
 
-           <!-- Announcement with image on right -->
+           <-- Announcement with image on right --
            <div id = "Announcement-Right-Image" class="row-9 my-3 align-self-center border border-dark rounded">
-            <!-- Announcement Box -->
+            <-- Announcement Box --
             <div class="col p-4 align-self-center">
-              <!-- Individual Announcement -->
+              <-- Individual Announcement --
               <div class="row-8">
                 <div class="col p-4 border border-dark rounded">
                   <h3> Announcement Title</h3>
                   <div class="row">
-                    <!-- Description body goes here -->
+                    <-- Description body goes here --
                     <div class="col-8">
                       <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
@@ -128,16 +177,16 @@
             </div>
           </div>
 
-          <!-- Announcement with no Image -->
+          <-- Announcement with no Image --
           <div id = "Announcement-No-Image" class="row-9 my-3 align-self-center border border-dark rounded">
-            <!-- Announcement Box -->
+            <-- Announcement Box --
             <div class="col p-4 align-self-center">
-              <!-- Individual Announcement -->
+              <-- Individual Announcement --
               <div class="row-8">
                 <div class="col p-4 border border-dark rounded">
                   <h3> Announcement Title</h3>
                   <div class="row">
-                    <!-- Description body goes here -->
+                    <-- Description body goes here --
                     <div class="col">
                       <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
@@ -154,7 +203,47 @@
             </div>
           </div>
         </div>
+        -->
+          <script type="text/javascript">
+            fetch(
+              "https://gist.githubusercontent.com/digertt/d2f522b0c938dc537d00e1215ce23721/raw/d080cf383d70ee1ebf0474f333b5f38e3bb492f0/data.json",
+            )
+              .then(function (response) {
+                return response.json();
+              })
+              .then(function (dat) {
+                generateDat2(dat);
+              })
+              .catch(function (err) {
+                console.log("error: " + err);
+              });
+            
+            function generateDat2(dat) {
+              let curDiv = document.getElementById("Announcement-Board");
+              
 
+              for (let i = 0; i < dat.announcements.length; i++) {
+                let newsItem = document.createElement("div");
+                newsItem.innerHTML = "<div class=\"col p-4 align-self-center\">" + 
+                "<div class=\"row-sm-8\">"+
+                  "<div class=\"col p-4 border border-dark rounded\">"+
+                    "<h3>" + dat.announcements[i].Title + "</h3>"+
+                    "<div class=\"row\">"+
+                      "<div class=\"col-4\">"+
+                        "<img src=\"" + dat.announcements[i].image + "\">"+
+                      "</div>"+
+                      "<div class=\"col-8\">"+
+                        "<p>"+
+                          dat.announcements[i].Text + 
+                        "<\p>";
+                          curDiv.appendChild(newsItem);
+                        }
+            }
+          </script>
+        
+        
+      
+      </div>
         
         <!-- Goes to documentaiton pages -->
         <div class = "my-4">
