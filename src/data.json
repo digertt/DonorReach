@@ -1,0 +1,34 @@
+{
+    "items":[
+        {
+            "name": "apples",
+            "number":5,
+            "goal":10,
+            "percentage":50
+        },
+        {
+            "name": "oranges",
+            "number":75,
+            "goal":100,
+            "percentage":75
+        },
+        {
+            "name": "pears",
+            "number":10,
+            "goal":40,
+            "percentage":25
+        }
+    ],
+    "announcements":[
+        {
+            "Title":"Hello world!",
+            "Text":"We're no strangers to love",
+            "image":"https://user-images.githubusercontent.com/104587902/282436125-33f55b55-6c8b-452b-af4e-2067e8dd71d6.jpg"
+        },
+        {
+            "Title":"Other announcement!",
+            "Text":"You know the rules, and so do I!",
+            "image":"https://user-images.githubusercontent.com/104587902/282437425-5e4f304d-85a9-4375-a990-3126c8d70f92.jpg"
+        }
+    ]
+}
