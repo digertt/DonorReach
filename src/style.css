@@ -8,6 +8,7 @@
 .donation-progress {
   text-align: center;
   margin: 20px 0;
+  transition: background-color 0.3s ease;
 }
 
 .donation-item {
@@ -42,4 +43,27 @@ TODO: progress fill color changes based on percentages
 
 .subscribe-text {
   font-size: 16px; 
+}
+
+.help1, .help2, .help3 {
+  position: relative;
+  display: inline-block;
+}
+
+.helpText1, .helpText2, .helpText3{
+  display: none;
+  position: absolute;
+  transform: translateX(20%) translateY(-20%);
+  height: 50px;
+  width: 200px;
+  background-color: #faf0e6;
+  border: 1px solid black;
+  padding: 4px;
+  border-radius: 5px;
+  box-shadow: 2 black;
+}
+
+.progress-div, .email-phone-form, .announcement-board {
+  border-radius: 5px;
+
 }
