@@ -9,23 +9,6 @@ registerGlobalComponents()
 // mount all the global components found in this page
 mount('[data-riot-component]')
 
-// Function to create progress bar "fractions"
-function updateCustomFractions() {
-    const donationItems = document.querySelectorAll('.donation-item');
-  
-    donationItems.forEach(item => {
-      const progressBar = item.querySelector('.progress-fill');
-      const customFractionText = item.querySelector('.custom-fraction-text');
-  
-      // get custom fraction text from element's content
-      const customFraction = customFractionText.textContent;
-      customFractionText.textContent = customFraction;
-    });
-}
-  
-//update when the page loads
-window.addEventListener('load', updateCustomFractions);
-
 //help box hover functionality
 const help1 = document.querySelector('.help1');
 const helpText1 = document.querySelector('.helpText1');

@@ -25,11 +25,7 @@
     <div class="row justify-content-center">
       <main class="column column-60" style="margin: 0 auto">
 
-        <!--
-        <h1>Hello that's my first Riot.js App</h1>
-        <div is="my-component" data-riot-component message="Hello There">
-        </div>
-        -->
+        <!-- Help button 1: progress bars -->
         <div class = "progress-div p-2 m-2">
           <div class="help1 float-right">
             <button class = "btn btn-outline-primary rounded-circle px-4 font-weight-bold text-center" > ? </button>
@@ -37,31 +33,11 @@
               <p>You can browse this section to check out what we need! </p>
             </div>
           </div>
-          <div class="donation-progress" id="donation-bars">
-            <!--
-          <div class="donation-item">
-            <p><b>Donation 1</b></p>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 75%;"></div>
-              <div class="custom-fraction-text">175/250 boxes</div>
-            </div>
-          </div>
-          <div class="donation-item">
-            <p><b>Donation 2</b></p>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 50%;"></div>
-              <div class="custom-fraction-text">100/200 cans</div>
-            </div>
-          </div>
-          <div class="donation-item">
-            <p><b>Donation 3</b></p>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 60%;"></div>
-              <div class="custom-fraction-text">25/40 pounds</div>
-            </div>
-          </div>
-          <!-- Add more donation items as needed -->
 
+        <h2 class = "font-weight-bold text-center"> Organization's Name </h2>
+
+        <!-- Script for progress bar data -->
+          <div class="donation-progress" id="donation-bars">
             <script type="text/javascript">
               fetch(
                 "https://json.extendsclass.com/bin/293728c51000",
@@ -82,37 +58,28 @@
                   let itemBar = document.createElement("div");
                   let hexColor = getColorHexCode(dat.items[i].percentage);
                   itemBar.innerHTML =
-                    "<div class=" +
-                    '"donation-item"' +
-                    ">" +
-                    "<p><b>" + dat.items[i].name + "</b></p>" +
-                    "<div class=" +
-                    '"progress-bar"' +
-                    ">" +
-                    "<div class=" +
-                    '"progress-fill"' +
-                    "style=" +
-                    '"width: ' +
-                    dat.items[i].percentage +
-                    '%; background-color: ' + hexColor + '";' +
-                    "></div>" +
-                    "<div class=" +
-                    '"custom-fraction-text"' +
-                    ">" +
-                    dat.items[i].number +
-                    "/" +
-                    dat.items[i].goal +
-                    " collected</div>" +
-                    "</div>" +
-                    "</div>";
+                  "<div class='donation-item p'>" + "<p>" + dat.items[i].name + "</p>" + "</div>" +
+                  + "<div class='progress-bar'>" +
+                  "<div class='progress-fill' style='width: " + dat.items[i].percentage + dat.items[i].percentage +'%; background-color: ' + hexColor + '";' + '></div>" 
+                  "<div class='custom-fraction-text'>" + dat.items[i].number + "/" + dat.items[i].goal + " collected</div>" +
+                  "</div>";
+
+                  let infoButton = document.createElement("button");
+                  infoButton.className = "info-button";  // Assigning the CSS class
+                  infoButton.innerText = "info";
+                  infoButton.addEventListener("click", function() {
+                      showPopup(dat.items[i].description);
+                  });
+
+                  itemBar.appendChild(infoButton);
                   curDiv.appendChild(itemBar);
-                }
-                
+                } 
               }
             </script>
           </div>
         </div>
 
+        <!-- Help button 2: email forms -->
         <!-- Button can move into awkward place currently, but it works -->
         <div class = "email-phone-form p-2 m-2">
           <div class="help2 float-right">
@@ -127,6 +94,10 @@
           
           <!-- No form logic -->
           <form class = "my-4">
+            <div class = "form-group">
+              <label>Your Name here:</label>
+              <input type="email" class = "form-control" placeholder = "Name..."> 
+            </div>
               <div class = "form-group">
                 <label>Your Email here:</label>
                 <input type="email" class = "form-control" placeholder = "Email..."> 
@@ -141,6 +112,7 @@
         </div>
 
 
+      <!-- Help button 3: announcement board -->
       <div class = "announcement-board p-2 m-2">
         <div class = "pb-1">
           <div class="help3 float-right">
@@ -185,63 +157,8 @@
                 </div>
               </div>
             </div>
-
-            <-- Announcement with image on right --
-            <div id = "Announcement-Right-Image" class="row-9 my-3 align-self-center border border-dark rounded">
-              <-- Announcement Box --
-              <div class="col p-4 align-self-center">
-                <-- Individual Announcement --
-                <div class="row-8">
-                  <div class="col p-4 border border-dark rounded">
-                    <h3> Announcement Title</h3>
-                    <div class="row">
-                      <-- Description body goes here --
-                      <div class="col-8">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa 
-                          qui officia deserunt mollit anim id est laborum.
-                        </p>
-                      </div>
-                      <div class="col-4">
-                        <img src="charity.png">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <-- Announcement with no Image --
-            <div id = "Announcement-No-Image" class="row-9 my-3 align-self-center border border-dark rounded">
-              <-- Announcement Box --
-              <div class="col p-4 align-self-center">
-                <-- Individual Announcement --
-                <div class="row-8">
-                  <div class="col p-4 border border-dark rounded">
-                    <h3> Announcement Title</h3>
-                    <div class="row">
-                      <-- Description body goes here --
-                      <div class="col">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa 
-                          qui officia deserunt mollit anim id est laborum.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           -->
+          <!-- Script for generating announcement board data -->
             <script type="text/javascript">
               fetch(
                 "https://gist.githubusercontent.com/digertt/d2f522b0c938dc537d00e1215ce23721/raw/d080cf383d70ee1ebf0474f333b5f38e3bb492f0/data.json",
@@ -278,9 +195,26 @@
                           }
               }
             </script>
-          
-          
-        
+
+            <!-- Scripts for info pop-up -->
+            <script>
+              function showPopup(description) {
+                document.getElementById("popupDescription").innerText = description;
+                document.getElementById("popup").style.display = "block";
+              }
+    
+              function hidePopup() {
+                  document.getElementById("popup").style.display = "none";
+              }
+              </script>
+
+        <div id="popup" class="popup" style="display:none;">
+          <div class="popup-content">
+              <span class="close" onclick="hidePopup()">&times;</span>
+              <p id="popupDescription"></p>
+          </div>
+        </div>
+
         </div>
       </div>
         
