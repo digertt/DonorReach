@@ -8,6 +8,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.0/milligram.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script>
+    function getColorHexCode(percentage) {
+      if (percentage >= 75){
+        return "#00FF00"; 
+      }else if (percentage >= 26) {
+        return "#FFFF00"; 
+      }else{
+        return "#FF0000";
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="container">
@@ -53,7 +64,7 @@
 
             <script type="text/javascript">
               fetch(
-                "https://gist.githubusercontent.com/digertt/d2f522b0c938dc537d00e1215ce23721/raw/d080cf383d70ee1ebf0474f333b5f38e3bb492f0/data.json",
+                "https://json.extendsclass.com/bin/293728c51000",
               )
                 .then(function (response) {
                   return response.json();
@@ -69,6 +80,7 @@
                 let curDiv = document.getElementById("donation-bars");
                 for (let i = 0; i < dat.items.length; i++) {
                   let itemBar = document.createElement("div");
+                  let hexColor = getColorHexCode(dat.items[i].percentage);
                   itemBar.innerHTML =
                     "<div class=" +
                     '"donation-item"' +
@@ -82,7 +94,7 @@
                     "style=" +
                     '"width: ' +
                     dat.items[i].percentage +
-                    '%";' +
+                    '%; background-color: ' + hexColor + '";' +
                     "></div>" +
                     "<div class=" +
                     '"custom-fraction-text"' +
