@@ -13,6 +13,8 @@
 
 .donation-item {
   margin: 10px 0;
+  font-size: 16px; 
+  font-weight: bold;
 }
 
 .donation-item p {
@@ -27,10 +29,16 @@
   border-radius: 5px;
 }
 
-/*
-TODO: progress fill color changes based on percentages
--> right now they're all blue
-*/
+.item-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Adjust this as needed */
+}
+
+.item-header p {
+  margin-right: 10px; /* Space between the paragraph and button */
+}
+
 .progress-fill {
   height: 100%;
   background-color: #1f92e4; 
@@ -65,5 +73,35 @@ TODO: progress fill color changes based on percentages
 
 .progress-div, .email-phone-form, .announcement-board {
   border-radius: 5px;
+}
+
+.popup {
+  position: fixed;
+  width: 300px;
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
 }
+
+.close {
+  float: right;
+  cursor: pointer;
+}
+
+.info-button {
+  background: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #1f92e4;
+  font-size: 10px; 
+  width: 50px; 
+  height: 30px; 
+     
+}
+

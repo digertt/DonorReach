@@ -4,19 +4,22 @@
             "name": "apples",
             "number":5,
             "goal":10,
-            "percentage":50
+            "percentage":50,
+            "description": "10 pounds of fresh apples needed"
         },
         {
             "name": "oranges",
             "number":75,
             "goal":100,
-            "percentage":75
+            "percentage":75,
+            "description": "we need 100 cans of Mandarin oranges"
         },
         {
             "name": "pears",
             "number":10,
             "goal":40,
-            "percentage":25
+            "percentage":25,
+            "description": "we need canned pears"
         }
     ],
     "announcements":[
