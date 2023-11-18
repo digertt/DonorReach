@@ -58,11 +58,13 @@
                   let itemBar = document.createElement("div");
                   let hexColor = getColorHexCode(dat.items[i].percentage);
                   itemBar.innerHTML =
-                  "<div class='donation-item p'>" + "<p>" + dat.items[i].name + "</p>" + "</div>" +
-                  + "<div class='progress-bar'>" +
-                  "<div class='progress-fill' style='width: " + dat.items[i].percentage + dat.items[i].percentage +'%; background-color: ' + hexColor + '";' + '></div>" 
-                  "<div class='custom-fraction-text'>" + dat.items[i].number + "/" + dat.items[i].goal + " collected</div>" +
-                  "</div>";
+                    "<div class='donation-item p'>" +
+                    "<p>" + dat.items[i].name + "</p>" +
+                    "</div>" +
+                    "<div class='progress-bar'>" +
+                    "<div class='progress-fill' style='width: " + dat.items[i].percentage + "%; background-color: " + hexColor + ";'></div>" +
+                    "<div class='custom-fraction-text'>" + dat.items[i].number + "/" + dat.items[i].goal + " collected</div>" +
+                    "</div>";
 
                   let infoButton = document.createElement("button");
                   infoButton.className = "info-button";  // Assigning the CSS class
