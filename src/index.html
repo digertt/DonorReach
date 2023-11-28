@@ -8,14 +8,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.0/milligram.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+  <!-- current color pallet: https://www.color-hex.com/color-palette/5361 -->
+  <!-- alt color pallet: https://www.color-hex.com/color-palette/1037357 -->
   <script>
     function getColorHexCode(percentage) {
-      if (percentage >= 75){
-        return "#00FF00"; 
-      }else if (percentage >= 26) {
-        return "#FFFF00"; 
-      }else{
-        return "#FF0000";
+      if (percentage == 100){
+        return "#bae1ff"; 
+      }
+      else if (percentage < 100 && percentage >= 75) {
+        return "#baffc9"; 
+      }
+      else if (percentage < 75 && percentage >= 50){
+        return "#ffffba";
+      }
+      else if (percentage < 50 && percentage >= 25){
+        return "#ffdfba";
+      }
+      else{
+        return "#ffb3ba";
       }
     }
   </script>
@@ -39,8 +50,8 @@
         <!-- Script for progress bar data -->
           <div class="donation-progress" id="donation-bars">
             <script type="text/javascript">
-              fetch(
-                "https://json.extendsclass.com/bin/4b9d8093a149",
+              fetch( 
+                "https://gist.githubusercontent.com/CarolineKYZ/9d6b2232cd843c5a6c74e0960b52bfd3/raw/e466a2c434e3fec367228f02e227588b551f830e/data.json",
               )
                 .then(function (response) {
                   return response.json();
@@ -128,42 +139,10 @@
         <!-- Div below determines board height -->
           <div id = "Announcement-Board" class ="overflow-auto p-4 my-4 bg-light border border-dark border-3" style = "max-height: 400px;">
 
-            <!-- possibly make divs below appendable with need input for h3, img, and p? idk -->
-
-            <!-- Announcement with image on left -->
-            <!--
-            <div id = "Announcement-Left-Image" class="row-9 my-3 align-self-center border border-dark rounded">
-              <-- Announcement Box --
-              <div class="col p-4 align-self-center">
-                <-- Individual Announcement --
-                <div class="row-sm-8">
-                  <div class="col p-4 border border-dark rounded">
-                    <h3> Announcement Title</h3>
-                    <div class="row">
-                      <div class="col-4">
-                        <img src="charity.png">
-                      </div>
-                      <-- Description body goes here --
-                      <div class="col-8">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa 
-                          qui officia deserunt mollit anim id est laborum.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          -->
           <!-- Script for generating announcement board data -->
             <script type="text/javascript">
               fetch(
-                "https://gist.githubusercontent.com/digertt/d2f522b0c938dc537d00e1215ce23721/raw/d080cf383d70ee1ebf0474f333b5f38e3bb492f0/data.json",
+                "https://gist.githubusercontent.com/CarolineKYZ/9d6b2232cd843c5a6c74e0960b52bfd3/raw/e466a2c434e3fec367228f02e227588b551f830e/data.json",
               )
                 .then(function (response) {
                   return response.json();

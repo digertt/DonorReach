@@ -1,37 +1,37 @@
 {
     "items":[
         {
-            "name": "apples",
+            "name": "Fresh Fruit",
             "number":5,
             "goal":10,
             "percentage":50,
-            "description": "10 pounds of fresh apples needed"
+            "description": "10 pounds of any type of fresh fruit needed"
         },
         {
-            "name": "oranges",
+            "name": "Seed & Nut Butters",
             "number":75,
             "goal":100,
             "percentage":75,
-            "description": "we need 100 cans of Mandarin oranges"
+            "description": "we need 100 cans of alternative peanut-free butters"
         },
         {
-            "name": "pears",
+            "name": "Pinto Beans & Rice",
             "number":10,
             "goal":40,
             "percentage":25,
-            "description": "we need canned pears"
-        }
+            "description": "we need 40 packages of pinto beans or brown rice"
+        } 
     ],
     "announcements":[
         {
-            "Title":"Hello world!",
-            "Text":"We're no strangers to love",
-            "image":"https://user-images.githubusercontent.com/104587902/282436125-33f55b55-6c8b-452b-af4e-2067e8dd71d6.jpg"
+            "Title":"Announcement",
+            "Text":"Lorem ipsum dolor sit amet. In vero earum vel quos quidem et reiciendis sapiente est omnis laboriosam ex voluptatum ipsam 33 pariatur rerum. Qui magnam officia ab modi quasi non voluptatum consequatur ut labore quaerat et voluptatem voluptates et aliquam saepe At aperiam corrupti. Vel quas quod aut autem unde qui omnis omnis ea facilis omnis et accusamus minima non rerum reprehenderit.",
+            "image":"https://carolinekyz.github.io./Images/DonorReach%20Logo.jpg"
         },
         {
             "Title":"Other announcement!",
-            "Text":"You know the rules, and so do I!",
-            "image":"https://user-images.githubusercontent.com/104587902/282437425-5e4f304d-85a9-4375-a990-3126c8d70f92.jpg"
+            "Text":"Lorem ipsum dolor sit amet. Eum debitis repellendus et nobis sint et sint consequatur a tempore deleniti. Ut beatae dolorem et corrupti vero in necessitatibus quod sit aperiam numquam sed voluptates omnis! \n Aut omnis distinctio et nihil aspernatur in accusamus debitis ut vitae quae qui officiis voluptas? Est recusandae consequatur et voluptatem quia At iusto fugiat sit impedit autem et veniam voluptatem qui corporis dolore cum quos voluptatem. Qui consequatur illum ea harum galisum aut itaque officia non nemo ipsum ut maxime facilis est nobis animi vel molestias omnis. Et deserunt corporis sit consequatur quam ut optio neque.",
+            "image":"https://carolinekyz.github.io./Images/DonorReach%20Logo.jpg"
         }
     ]
 }
