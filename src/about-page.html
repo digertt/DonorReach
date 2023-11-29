@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Organization Name</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
@@ -19,6 +21,22 @@
         .faq-container {
             text-align: center;
         }
+
+        #Announcement-Board {
+            max-height: 300px; /* Adjust the maximum height as needed */
+            max-width: 1000px;
+        }
+
+        .announcement-board {
+            /* Add any additional styles for the announcement board container */
+        }
+
+        .announcement-board img {
+            max-width: 100%; /* Make sure images within the announcement board don't exceed their container */
+            height: auto;
+        }
+
+        /* Add any additional styles as needed */
     </style>
 </head>
 <body>
@@ -41,14 +59,62 @@
         </div>
 
         <div class="faq-item">
-            <h3>Image Gallery</h3>
-            <img src="https://example.com/your-image.jpg" alt="Image Gallery">
-            <p>Explore our image gallery to see our work and initiatives.</p>
+            <h3>Meet The Team</h3>
+            <div class="announcement-board p-2 m-2">
+                <div class="pb-1">
+                    <div class="help3 float-right">
+                        <button class="btn btn-outline-primary rounded-circle px-4 font-weight-bold text-center">?</button>
+                        <div class="helpText3">
+                            <p>Subscribe to [organization name]'s email list, or start a donation form with the buttons below. </p>
+                        </div>
+                    </div>
+                    <h2 class="font-weight-bold text-center"> </h2>
+                </div>
+                <!-- Div below determines board height -->
+                <div id="Announcement-Board" class="overflow-auto p-4 my-4 bg-light border border-dark border-3">
+                    <!-- Your announcement board content -->
+                </div>
+            </div>
         </div>
 
-        <!-- You can add more sections or content as needed -->
-    </div>
+        <!-- Script for generating announcement board data -->
+        <script type="text/javascript">
+            fetch(
+                "https://gist.githubusercontent.com/gallagd2/ff01417b96562f76a34af75ec3e397fe/raw/b80741df9452e8314cf2936b45ad944cc8f3f0c2/donorData.json",
+            )
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (dat) {
+                    generateDat2(dat);
+                })
+                .catch(function (err) {
+                    console.log("error: " + err);
+                });
 
-    <p><a href="index.html">Back to Home</a></p>
+            function generateDat2(dat) {
+                let curDiv = document.getElementById("Announcement-Board");
+
+                for (let i = 0; i < dat.teamMembers.length; i++) {
+                    let newsItem = document.createElement("div");
+                    newsItem.innerHTML = "<div class=\"col p-4 align-self-center\">" +
+                        "<div class=\"row-sm-8\">" +
+                        "<div class=\"col p-4 border border-dark rounded\">" +
+                        "<h3>" + dat.teamMembers[i].Title + "</h3>" +
+                        "<div class=\"row\">" +
+                        "<div class=\"col-4\">" +
+                        "<img src=\"" + dat.teamMembers[i].image + "\">" +
+                        "</div>" +
+                        "<div class=\"col-8\">" +
+                        "<p>" +
+                        dat.teamMembers[i].Text +
+                        "</p>";
+                    curDiv.appendChild(newsItem);
+                }
+            }
+        </script>
+
+        <p><a href="index.html">Back to Home</a></p>
+    </div>
 </body>
 </html>
