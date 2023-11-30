@@ -106,20 +106,70 @@
             stay updated with news of events and future inventory alerts from your favorite organization.</p>
           
           <!-- No form logic -->
+           <script type="text/javascript">
+            function submitEmail(){
+              
+              let email = document.getElementById('emailField').value;
+              let name = document.getElementById('nameField').value;
+              let phone = document.getElementById('phoneField').value;
+              let message = JSON.stringify({
+                  "addr": email,
+                  "phone": phone,
+                  "name": name
+                });
+                event.preventDefault();
+                fetch("http://54.176.186.187:3330/test", {
+                  method: "POST",
+                  body: JSON.stringify({
+                    userId: 1,
+                    title: "Fix my bugs",
+                    completed: false
+                  }),
+                  headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                  }
+                })
+                .then((response) => response.json())
+                .then(data => console.log(data))
+                .catch((error) => {
+                    alert('Error:'+ error);
+                });
+              /*fetch("http://54.176.186.187:3330/test", {
+                //fetch("http://localhost:3330",{
+                method: "POST",
+                body: message,
+                headers: {
+                  "Content-type": "application/json; charset=UTF-8"
+                }
+              })
+              .then(alert(JSON.stringify(response.json())));*/
+              /*var xhr = new XMLHttpRequest();
+              xhr.open("POST", "http://54.176.186.187:3330/test", true);
+              xhr.setRequestHeader('Content-Type', 'application/json');
+              xhr.send(JSON.stringify({
+                  value: 1
+              }));*/
+              
+             /* document.getElementById("emailField").action="http://localhost:3330/test";
+                      alert("btn click") ;
+                      alert("test"+'');
+            document.getElementById("emailField").submit();*/
+            }
+          </script>
           <form class = "my-4">
             <div class = "form-group">
               <label>Your Name here:</label>
-              <input type="email" class = "form-control" placeholder = "Name..."> 
+              <input id = "nameField" type="username" class = "form-control" placeholder = "Name..."> 
             </div>
               <div class = "form-group">
                 <label>Your Email here:</label>
-                <input type="email" class = "form-control" placeholder = "Email..."> 
+                <input id = "emailField" type="email" class = "form-control" placeholder = "Email..."> 
               </div>
               <div class = "form-group">
                 <label>Your Phone Number here:</label>
-                <input type="password" class = "form-control" placeholder = "Phone number..."> 
+                <input id = "phoneField" type="username" class = "form-control" placeholder = "Phone number..."> 
               </div>
-              <button type = "submit" class = "btn btn-primary font-weight-bold">Subscribe</button>
+              <button type = "submit" onclick = "submitEmail()" class = "btn btn-primary font-weight-bold">Subscribe</button>
               <button href="#" class = "btn btn-primary font-weight-bold">Donate</button>
             </form>
         </div>
