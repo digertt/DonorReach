@@ -1,4 +1,4 @@
-
+//This is the app running in Tristan's AWS EC2 server that ingests POST requests from clients subscribing to the app. It forwards this information to a DynamoDB database (also on Tristan's account)
 const express = require('express');
 const app = express();
 const AWS = require('aws-sdk');
