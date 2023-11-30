@@ -3,7 +3,7 @@
 <head>
   <title>My Riot App</title>
   <link rel="stylesheet" href="style.css">
-  <script src="index.js"></script>
+  <script src="index.js" async></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.0/milligram.css">
@@ -142,39 +142,38 @@
           <!-- Script for generating announcement board data -->
             <script type="text/javascript">
               fetch(
-                "https://gist.githubusercontent.com/CarolineKYZ/9d6b2232cd843c5a6c74e0960b52bfd3/raw/e466a2c434e3fec367228f02e227588b551f830e/data.json",
-              )
-                .then(function (response) {
-                  return response.json();
-                })
-                .then(function (dat) {
-                  generateDat2(dat);
-                })
-                .catch(function (err) {
-                  console.log("error: " + err);
-                });
-              
-              function generateDat2(dat) {
-                let curDiv = document.getElementById("Announcement-Board");
-                
-
-                for (let i = 0; i < dat.announcements.length; i++) {
-                  let newsItem = document.createElement("div");
-                  newsItem.innerHTML = "<div class=\"col p-4 align-self-center\">" + 
-                  "<div class=\"row-sm-8\">"+
-                    "<div class=\"col p-4 border border-dark rounded\">"+
-                      "<h3>" + dat.announcements[i].Title + "</h3>"+
-                      "<div class=\"row\">"+
-                        "<div class=\"col-4\">"+
-                          "<img src=\"" + dat.announcements[i].image + "\">"+
-                        "</div>"+
-                        "<div class=\"col-8\">"+
-                          "<p>"+
-                            dat.announcements[i].Text + 
-                          "<\p>";
-                            curDiv.appendChild(newsItem);
-                          }
-              }
+                  "https://gist.githubusercontent.com/orlando-besoriojr/2de77ffd4adc36febdbbdd5b03928195/raw/dbdd86b05f7efb61ec1e675d027e2d2795ce7986/data.json",
+                  )
+                  .then(function (response) {
+                    return response.json();
+                  })
+                  .then(function (dat) {
+                    generateDat2(dat);
+                  })
+                  .catch(function (err) {
+                    console.log("error: " + err);
+                  });
+                  function generateDat2(dat) {
+                    let curDiv = document.getElementById("Announcement-Board");
+                    // prevDates needs to be saved somewhere else so you can keep old post dates
+                    for (let i = 0; i < dat.announcements.length; i++) {
+                      let newsItem = document.createElement("div");
+                      newsItem.innerHTML = "<div class=\"col p-4 align-self-center\">" + 
+                      "<div class=\"row-sm-8\">"+
+                        "<div class=\"col p-4 border border-dark rounded\">"+
+                          "<h3>" + dat.announcements[i].Title + "</h3>"+
+                          "<h4>" + dat.announcements[i].Date + "</h4>" +
+                          "<div class=\"row\">"+
+                            "<div class=\"col-4\">"+
+                              "<img src=\"" + dat.announcements[i].image + "\">"+
+                            "</div>"+
+                            "<div class=\"col-8\">"+
+                              "<p>"+
+                                dat.announcements[i].Text + 
+                              "<\p>";
+                                curDiv.appendChild(newsItem);
+                    }
+                  }
             </script>
 
             <!-- Scripts for info pop-up -->

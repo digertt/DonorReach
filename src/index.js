@@ -55,4 +55,3 @@ help3.addEventListener('mouseleave', function() {
   helpText3.style.display = 'none';
   announceBoard.style.backgroundColor = 'transparent';
 });
-
