@@ -76,36 +76,32 @@
 
         <!-- Script for generating announcement board data -->
         <script type="text/javascript">
-            fetch(
-                "https://gist.githubusercontent.com/gallagd2/ff01417b96562f76a34af75ec3e397fe/raw/b80741df9452e8314cf2936b45ad944cc8f3f0c2/donorData.json",
-            )
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (dat) {
-                    generateDat2(dat);
-                })
-                .catch(function (err) {
-                    console.log("error: " + err);
-                });
+            const gistID = 'ff01417b96562f76a34af75ec3e397fe';
+            const gistAPIUrl = `https://api.github.com/gists/${gistID}`;
 
-            function generateDat2(dat) {
+            fetch(gistAPIUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const jsonData = JSON.parse(data.files['donorData.json'].content);
+                    generateDat2(jsonData);
+                })
+                .catch(error => console.error("Error fetching Gist:", error));
+
+            function generateDat2(data) {
                 let curDiv = document.getElementById("Announcement-Board");
 
-                for (let i = 0; i < dat.teamMembers.length; i++) {
+                for (let i = 0; i < data.teamMembers.length; i++) {
                     let newsItem = document.createElement("div");
                     newsItem.innerHTML = "<div class=\"col p-4 align-self-center\">" +
                         "<div class=\"row-sm-8\">" +
                         "<div class=\"col p-4 border border-dark rounded\">" +
-                        "<h3>" + dat.teamMembers[i].Title + "</h3>" +
+                        "<h3>" + data.teamMembers[i].Title + "</h3>" +
                         "<div class=\"row\">" +
                         "<div class=\"col-4\">" +
-                        "<img src=\"" + dat.teamMembers[i].image + "\">" +
+                        "<img src=\"" + data.teamMembers[i].image + "\">" +
                         "</div>" +
                         "<div class=\"col-8\">" +
-                        "<p>" +
-                        dat.teamMembers[i].Text +
-                        "</p>";
+                        "<p>" + data.teamMembers[i].Text + "</p>";
                     curDiv.appendChild(newsItem);
                 }
             }
