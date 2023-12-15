@@ -8,7 +8,7 @@ CSCI 436/536 FA 23
 5) run "npm install" let it install additional packages
 6) then run "npm start" and it should launch in a separate web browser after installing a few more packages
 
-   Note: The subscriber database and internet-facing EC2 instance is in Tristan's personal AWS account. 
+   Note: The subscriber database and internet-facing EC2 instance is in Tristan's personal AWS account. The email script also runs on the instance, and uses Tristan's MailJet API keys. 
 
 ## Start
 
